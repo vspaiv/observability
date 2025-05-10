@@ -18,3 +18,12 @@ count(service.name) / count(service.name, shift='1w')  -> compara erros do dia x
 Vertical Axys:
 count(kql='transaction.result : "HTTP 5xx"  ') / count(kql='transaction.result : *')
 count(kql='transaction.result : "HTTP 1xx" or transaction.result : "HTTP 2xx" or transaction.result : "HTTP 3xx" or transaction.result : "HTTP 4xx" ')/ count(kql='transaction.result : *')
+
+
+
+
+-------------RATIO-----------
+filter: kubernetes.labels.app: nginx-ingress
+
+count(lucene='status_code: [400 TO 499]') / count(lucene='status_code: [1 TO 1000]')
+count(lucene='status_code: [500 TO 599]') / count(lucene='status_code: [1 TO 1000]')
