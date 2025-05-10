@@ -12,3 +12,9 @@ count(kql='error.grouping_key : * ') / count(kql='transaction.type : page-load a
 
 
 count(service.name) / count(service.name, shift='1w')  -> compara erros do dia x período setado
+
+
+-------5xx errors---------------
+Vertical Axys:
+count(kql='transaction.result : "HTTP 5xx"  ') / count(kql='transaction.result : *')
+count(kql='transaction.result : "HTTP 1xx" or transaction.result : "HTTP 2xx" or transaction.result : "HTTP 3xx" or transaction.result : "HTTP 4xx" ')/ count(kql='transaction.result : *')
