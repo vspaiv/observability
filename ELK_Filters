@@ -1,0 +1,14 @@
+##ELK boas praticas e comandos:
+
+count(kql='transaction.type' : page-load)
+
+count([transaction.type:  page-load])
+transaction.type: page-load and processor.event: transaction
+
+
+count(kql='transaction.type : page-load and processor.event : transaction') / count(kql='error.grouping_key : * 
+
+count(kql='error.grouping_key : * ') / count(kql='transaction.type : page-load and processor.event : transaction') * 1
+
+
+count(service.name) / count(service.name, shift='1w')  -> compara erros do dia x período setado
